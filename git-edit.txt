@@ -1,3 +1,13 @@
+github远程仓库
+1.创建SSH Key，在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了 ，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
+ ssh-keygen -t rsa -C "youremail@example.com"	邮箱换成你自己的，一路回车
+2.登陆GitHub，打开“settings”，“SSH Keys”页面：
+ 然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容，点击 Add SSH key
+3.关联仓库，在github上创建一个名叫test的仓库，在本地test仓库下输入：
+ git remote add origin git@github.com:michaelliao/test.git	//michaelliao换成自己的github账号
+ git push -u origin master		//第一次将本地文件推送到github
+ git push origin master		//以后都可以使用这个命令推送
+
 git config	用法：git config --global user.name “[name]” 设置提交代码的用户名
 		用法：git config --global user.email “[email address]” 设置提交代码的电子邮件地址
 
@@ -6,14 +16,9 @@ git init	用法：git init [repository name] 用于创建一个新的代码库
 git clone	用法：git clone [url] 用于通过指定的URL获取一个代码库
 
 git add		用法：git add [file] 将一个文件添加至stage(暂存区)
-		用法：git add * 将多个文件添加至stage(暂存区)
-		用法：git add -A 将一个文件添加至stage(暂存区)
-		用法：git add . 将多个文件添加至stage(暂存区)
-		用法：git add -u 将多个文件添加至stage(暂存区)
-git add -A 保存所有的修改
-git add . 保存新的添加和修改，但是不包括删除
-git add -u 保存修改和删除，但是不包括新建文件
-
+		用法：git add * 将多个文件添加至stage(暂存区) 保存新的添加和修改，但是不包括删除
+		用法：git add -A || git add . 将多个文件添加至stage(暂存区) 保存所有的修改
+		用法：git add -u 将多个文件添加至stage(暂存区) 保存修改和删除，但是不包括新建文件
 
 git commit	用法：git commit -m “[ Type in the commit message]” 在版本历史记录中永久记录文件
 		用法：git commit -a 将提交git add命令添加的所有文件，并提交git add命令之后更改的所有文件
@@ -52,10 +57,10 @@ git merge	用法：git merge [branch name] 将指定分支的历史记录合并到当前分支
 
 git remote	用法：git remote add [variable name] [Remote Server Link] 将本地的代码库连接到远程服务器
 
-git push	用法：git push [variable name] master 将主分支上提交的变更发送到远程代码库
-		用法：git push [variable name] [branch] 将指定分支上的提交发送到远程代码库
-		用法：git push --all [variable name] 将所有分支发送到远程代码库
-		用法：git push [variable name] :[branch name] 删除远程代码库上的一个分支
+git push	用法：git push [variable name] master 将主分支上提交的变更发送到远程代码库 (variable name:远程主机名)
+		用法：git push [variable name] [branch] 将指定分支上的提交发送到远程代码库 (variable name:远程主机名)
+		用法：git push --all [variable name] 将所有分支发送到远程代码库 (variable name:远程主机名)
+		用法：git push [variable name] :[branch name] 删除远程代码库上的一个分支 (variable name:远程主机名)
 
 git pull	用法：git pull [Repository Link] 将获取远程服务器上的变更，并合并到你的工作目录
 
