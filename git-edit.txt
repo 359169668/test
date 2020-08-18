@@ -1,0 +1,65 @@
+git config	用法：git config --global user.name “[name]” 设置提交代码的用户名
+		用法：git config --global user.email “[email address]” 设置提交代码的电子邮件地址
+
+git init	用法：git init [repository name] 用于创建一个新的代码库
+
+git clone	用法：git clone [url] 用于通过指定的URL获取一个代码库
+
+git add		用法：git add [file] 将一个文件添加至stage(暂存区)
+		用法：git add * 将多个文件添加至stage(暂存区)
+		用法：git add -A 将一个文件添加至stage(暂存区)
+		用法：git add . 将多个文件添加至stage(暂存区)
+		用法：git add -u 将多个文件添加至stage(暂存区)
+git add -A 保存所有的修改
+git add . 保存新的添加和修改，但是不包括删除
+git add -u 保存修改和删除，但是不包括新建文件
+
+
+git commit	用法：git commit -m “[ Type in the commit message]” 在版本历史记录中永久记录文件
+		用法：git commit -a 将提交git add命令添加的所有文件，并提交git add命令之后更改的所有文件
+				    此模式下操作方法：i编辑提交的信息，按ESC退出编辑模式，保存退出输入:wq按回车，不保存退出输入:q!或:qa!按回车。
+
+git diff	用法：git diff 显示尚未添加到stage的文件的变更
+		用法：git diff --staged 显示添加到stage的文件与当前最新版本之间的差异
+		用法：git diff [first branch] [second branch] 显示两个分支之间的差异
+
+git reset	用法：git reset [file] 将从stage中撤出指定的文件，但可以保留文件的内容
+		用法：git reset [commit] 撤销指定提交之后的所有提交，并在本地保留变更 (注:commit为版本号)
+		用法：git reset --hard [commit] 将丢弃所有的历史记录，并回滚到指定的提交 (注:commit为版本号)
+		用法：git reset --hard [commit] 保留工作目录，并把重置 HEAD 所带来的新的差异放进暂存区 (注:commit为版本号)
+
+git status	用法：git status 显示所有需要提交的文件
+
+git rm		用法：git rm [file] 删除工作目录中的文件，并将删除动作添加到stage
+
+git log		用法：git log 用于显示当前分支的版本历史记录
+		用法：git log --follow[file] 显示某个文件的版本历史记录，包括文件的重命名
+
+git reflog	用法：git reflog 查看所有分支的所有操作记录(包括commit和reset的操作),包括已经被删除的commit记录
+
+git tag		用法：git tag [commitID] 给指定的提交添加标签
+
+git show	用法：git show [commit] 显示指定提交的元数据以及内容变更
+
+git branch	用法：git branch 显示当前代码库中所有的本地分支
+		用法：git branch [branch name] 创建一个分支
+		用法：git branch -d [branch name] 删除指定的分支
+
+git checkout	用法：git checkout [branch name] 切换分支
+		用法：git checkout -b [branch name] 创建一个分支，并切换到新分支上
+
+git merge	用法：git merge [branch name] 将指定分支的历史记录合并到当前分支
+
+git remote	用法：git remote add [variable name] [Remote Server Link] 将本地的代码库连接到远程服务器
+
+git push	用法：git push [variable name] master 将主分支上提交的变更发送到远程代码库
+		用法：git push [variable name] [branch] 将指定分支上的提交发送到远程代码库
+		用法：git push --all [variable name] 将所有分支发送到远程代码库
+		用法：git push [variable name] :[branch name] 删除远程代码库上的一个分支
+
+git pull	用法：git pull [Repository Link] 将获取远程服务器上的变更，并合并到你的工作目录
+
+git stash	用法：git stash save 将临时保存所有修改的文件
+		用法：git stash pop 将恢复最近一次stash（储藏）的文件
+		用法：git stash list 将显示stash的所有变更
+		用法：git stash drop 将丢弃最近一次stash的变更
